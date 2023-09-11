@@ -1,19 +1,17 @@
-import ImageGalleryItem from '../ImageGalleryItem/ImageGalleryItem';
+import React from 'react';
 import PropTypes from 'prop-types';
-
+import ImageGalleryItem from '../ImageGalleryItem/ImageGalleryItem';
 import { ImageGalleryList } from './ImageGallery.styled';
 
-export default function ImageGallery({ galleryItems }) {
+const ImageGallery = ({ galleryItems }) => {
   return (
     <ImageGalleryList>
-      {galleryItems.map(galleryItem => {
-        return (
-          <ImageGalleryItem key={galleryItem.id} galleryItem={galleryItem} />
-        );
-      })}
+      {galleryItems.map((galleryItem) => (
+        <ImageGalleryItem key={galleryItem.id} galleryItem={galleryItem} />
+      ))}
     </ImageGalleryList>
   );
-}
+};
 
 ImageGallery.propTypes = {
   galleryItems: PropTypes.arrayOf(
@@ -25,3 +23,5 @@ ImageGallery.propTypes = {
     })
   ).isRequired,
 };
+
+export default ImageGallery;
